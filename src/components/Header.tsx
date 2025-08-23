@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShoppingCart, Menu, X, User } from "lucide-react";
+import { ShoppingCart, Menu } from "lucide-react";
 import avatarImage from "@/assets/image-avatar.png";
 import { Button } from "@/components/ui/button";
 import { CartDropdown } from "./CartDropdown";
@@ -9,10 +9,17 @@ import { useCart } from "@/hooks/useCart";
 interface HeaderProps {
   cart: ReturnType<typeof useCart>["cart"];
   onToggleCart: () => void;
+  onRemoveFromCart: (productId: string) => void;
+  onUpdateQuantity: (productId: string, quantity: number) => void;
 }
 
 // Main header component with navigation, cart, and mobile menu
-export const Header = ({ cart, onToggleCart }: HeaderProps) => {
+export const Header = ({
+  cart,
+  onToggleCart,
+  onRemoveFromCart,
+  onUpdateQuantity,
+}: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Navigation menu items
@@ -76,7 +83,11 @@ export const Header = ({ cart, onToggleCart }: HeaderProps) => {
                 </Button>
 
                 {/* Cart dropdown */}
-                <CartDropdown cart={cart} />
+                <CartDropdown
+                  cart={cart}
+                  onRemoveFromCart={onRemoveFromCart}
+                  onUpdateQuantity={onUpdateQuantity}
+                />
               </div>
 
               {/* User avatar */}

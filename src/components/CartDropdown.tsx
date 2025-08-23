@@ -1,16 +1,20 @@
-import { Trash2 } from "lucide-react";
+import { Trash2, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useCart } from "@/hooks/useCart";
 
 interface CartDropdownProps {
   cart: ReturnType<typeof useCart>["cart"];
+  onRemoveFromCart: (productId: string) => void;
+  onUpdateQuantity: (productId: string, quantity: number) => void;
 }
 
 // Shopping cart dropdown component that matches the design specifications
-export const CartDropdown = ({ cart }: CartDropdownProps) => {
-  const { removeFromCart } = useCart();
-
+export const CartDropdown = ({
+  cart,
+  onRemoveFromCart,
+  onUpdateQuantity,
+}: CartDropdownProps) => {
   if (!cart.isOpen) return null;
 
   return (
@@ -46,13 +50,43 @@ export const CartDropdown = ({ cart }: CartDropdownProps) => {
                     <p className="font-medium text-gray-900 text-sm truncate">
                       {item.product.name}
                     </p>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <span>${item.product.price.toFixed(2)}</span>
-                      <span>×</span>
-                      <span>{item.quantity}</span>
-                      <span className="font-bold text-gray-900">
+                    <div className="flex items-center justify-between mt-1">
+                      <span className="text-sm text-gray-600">
+                        ${item.product.price.toFixed(2)} each
+                      </span>
+                      <span className="font-bold text-gray-900 text-sm">
                         ${(item.product.price * item.quantity).toFixed(2)}
                       </span>
+                    </div>
+
+                    {/* Quantity controls */}
+                    <div className="flex items-center justify-between mt-2">
+                      <div className="flex items-center space-x-2">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() =>
+                            onUpdateQuantity(item.product.id, item.quantity - 1)
+                          }
+                          className="h-6 w-6 p-0 hover:bg-gray-100"
+                          disabled={item.quantity <= 1}
+                        >
+                          <Minus className="h-3 w-3" />
+                        </Button>
+                        <span className="text-sm font-medium w-8 text-center">
+                          {item.quantity}
+                        </span>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() =>
+                            onUpdateQuantity(item.product.id, item.quantity + 1)
+                          }
+                          className="h-6 w-6 p-0 hover:bg-gray-100"
+                        >
+                          <Plus className="h-3 w-3" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
 
@@ -60,7 +94,7 @@ export const CartDropdown = ({ cart }: CartDropdownProps) => {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => removeFromCart(item.product.id)}
+                    onClick={() => onRemoveFromCart(item.product.id)}
                     className="text-gray-400 hover:text-red-500 hover:bg-red-50 p-1 rounded"
                     aria-label={`Remove ${item.product.name} from cart`}
                   >
@@ -68,6 +102,16 @@ export const CartDropdown = ({ cart }: CartDropdownProps) => {
                   </Button>
                 </div>
               ))}
+            </div>
+
+            {/* Cart total */}
+            <div className="border-t pt-4 mb-4">
+              <div className="flex justify-between items-center">
+                <span className="font-semibold text-gray-900">Total:</span>
+                <span className="font-bold text-xl text-gray-900">
+                  ${cart.total.toFixed(2)}
+                </span>
+              </div>
             </div>
 
             {/* Checkout button - matches the orange design */}

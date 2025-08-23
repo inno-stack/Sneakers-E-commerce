@@ -74,6 +74,33 @@ export const useCart = () => {
     [updateCartTotals]
   );
 
+  // Update item quantity in cart
+  const updateQuantity = useCallback(
+    (productId: string, newQuantity: number) => {
+      if (newQuantity <= 0) {
+        removeFromCart(productId);
+        return;
+      }
+
+      setCart((prevCart) => {
+        const newItems = prevCart.items.map((item) =>
+          item.product.id === productId
+            ? { ...item, quantity: newQuantity }
+            : item
+        );
+        const { total, itemCount } = updateCartTotals(newItems);
+
+        return {
+          ...prevCart,
+          items: newItems,
+          total,
+          itemCount,
+        };
+      });
+    },
+    [updateCartTotals, removeFromCart]
+  );
+
   // Toggle cart dropdown visibility
   const toggleCart = useCallback(() => {
     setCart((prevCart) => ({ ...prevCart, isOpen: !prevCart.isOpen }));
@@ -88,6 +115,7 @@ export const useCart = () => {
     cart,
     addToCart,
     removeFromCart,
+    updateQuantity,
     toggleCart,
     closeCart,
   };
