@@ -1,96 +1,181 @@
-# Frontend Mentor - E-commerce product page
+# Sneakers E-commerce Website
 
-![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
+A modern, responsive e-commerce website built with React, TypeScript, and Tailwind CSS v4. This project showcases a clean product page design with an interactive image gallery, shopping cart functionality, and mobile-first responsive design.
 
-## Welcome! 👋
+## 🚀 Features
 
-Thanks for checking out this front-end coding challenge.
+- **Interactive Product Gallery** - High-quality image viewer with thumbnail navigation and lightbox modal
+- **Shopping Cart** - Add/remove items with real-time quantity updates and price calculations
+- **Responsive Design** - Optimized for desktop, tablet, and mobile devices
+- **Modern UI Components** - Built with Radix UI primitives and custom styling
+- **TypeScript Support** - Full type safety throughout the application
+- **Performance Optimized** - Fast loading with Vite bundler and optimized assets
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## 🛠️ Tech Stack
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+- **Frontend Framework:** React 18 with TypeScript
+- **Styling:** Tailwind CSS v4
+- **Build Tool:** Vite
+- **UI Components:** Radix UI primitives
+- **Icons:** Lucide React
+- **State Management:** React hooks (useState, useCallback)
+- **Image Handling:** SVG assets with Vite optimization
 
-## The challenge
+## 📦 Installation
 
-Your challenge is to build out this e-commerce product page and get it looking as close to the design as possible.
+1. **Clone the repository**
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+   ```bash
+   git clone <your-repo-url>
+   cd sneakers-ecommerce
+   ```
 
-Your users should be able to:
+2. **Install dependencies**
 
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Open a lightbox gallery by clicking on the large product image
-- Switch the large product image by clicking on the small thumbnail images
-- Add items to the cart
-- View the cart and remove items from it
+   ```bash
+   npm install
+   ```
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+3. **Start the development server**
 
-## Where to find everything
+   ```bash
+   npm run dev
+   ```
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+4. **Open your browser**
+   Navigate to `http://localhost:5173` to view the application
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+## 🏗️ Project Structure
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components (buttons, cards, etc.)
+│   ├── Header.tsx      # Navigation header with cart
+│   ├── ProductGallery.tsx  # Image gallery component
+│   ├── ProductDetails.tsx  # Product info and purchase controls
+│   ├── CartDropdown.tsx    # Shopping cart dropdown
+│   └── MobileMenu.tsx      # Mobile navigation menu
+├── hooks/              # Custom React hooks
+│   └── useCart.ts      # Shopping cart state management
+├── types/              # TypeScript type definitions
+│   └── index.ts        # Product and cart interfaces
+├── data/               # Mock data and constants
+│   └── productData.ts  # Product information
+├── assets/             # Static assets (images, icons)
+├── lib/                # Utility functions
+└── App.tsx             # Main application component
+```
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## 🎨 Design Features
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Product Gallery
 
-## Building your project
+- **Thumbnail Navigation** - Click thumbnails to switch main image
+- **Lightbox Modal** - Full-screen image viewing with keyboard navigation
+- **Hover Effects** - Smooth transitions and visual feedback
+- **Responsive Layout** - Adapts to different screen sizes
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### Shopping Cart
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- **Real-time Updates** - Instant quantity and price calculations
+- **Persistent State** - Cart contents maintained during session
+- **Visual Feedback** - Item counter badge and smooth animations
+- **Empty State** - Clean messaging when cart is empty
 
-## Deploying your project
+### Mobile Experience
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+- **Touch-friendly** - Optimized for mobile interactions
+- **Slide-out Menu** - Clean navigation for smaller screens
+- **Responsive Images** - Properly scaled for mobile viewing
+- **Performance** - Fast loading on mobile networks
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+## 🔧 Available Scripts
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Create a custom `README.md`
+## 📱 Browser Support
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## 🎯 Key Components
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### useCart Hook
 
-## Submitting your solution
+Custom hook managing shopping cart state with the following features:
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- Add/remove items
+- Quantity management
+- Price calculations
+- Cart visibility toggle
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+### Product Gallery
 
-## Sharing your solution
+Interactive image gallery supporting:
 
-There are multiple places you can share your solution:
+- Multiple product images
+- Thumbnail navigation
+- Lightbox modal view
+- Keyboard navigation
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+### Responsive Header
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+Navigation component featuring:
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+- Mobile hamburger menu
+- Shopping cart with item counter
+- User avatar
+- Smooth hover animations
 
-## Got feedback for us?
+## 🚀 Performance Optimizations
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+- **Vite Build Tool** - Fast development and optimized production builds
+- **JPG Assets** - Scalable vector graphics for crisp images
+- **Code Splitting** - Automatic chunking for faster loading
+- **CSS Optimization** - Tailwind CSS purging for minimal bundle size
+- **Image Optimization** - Proper sizing and lazy loading
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+## 🎨 Customization
 
-**Have fun building!** 🚀
+### Colors
+
+The design uses a carefully selected color palette:
+
+- **Primary:** Orange (#f97316) for CTAs and highlights
+- **Neutral:** Gray scale for text and backgrounds
+- **Accent:** Black for premium feel
+
+### Typography
+
+- **Font Family:** Inter for clean, modern readability
+- **Font Weights:** 400 (regular), 600 (semibold), 700 (bold)
+- **Responsive Sizing:** Scales appropriately across devices
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is not licensed yet.
+
+## 🙏 Acknowledgments
+
+- Design inspiration from modern e-commerce platforms
+- Icons provided by [Lucide React](https://lucide.dev/)
+- UI components built with [Radix UI](https://www.radix-ui.com/)
+- Styling powered by [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+**Built with ❤️ using React, TypeScript, and Tailwind CSS**
