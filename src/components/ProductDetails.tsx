@@ -39,7 +39,7 @@ export const ProductDetails = ({
     <Card className="p-6 lg:p-8 space-y-6">
       {/* Company and product name */}
       <div className="space-y-2">
-        <p className="text-orange-500 font-bold text-sm tracking-wide uppercase">
+        <p className="text-gray-600 font-bold text-sm tracking-wide uppercase">
           {product.company}
         </p>
         <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">

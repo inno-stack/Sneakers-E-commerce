@@ -43,7 +43,7 @@ export const Header = ({
 
             {/* Logo */}
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-black">sneakers</h1>
+              <h1 className="text-3xl font-bold text-black">sneakers</h1>
             </div>
 
             {/* Desktop Navigation - hidden on mobile */}
